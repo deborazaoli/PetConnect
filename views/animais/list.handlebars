@@ -1,0 +1,38 @@
+<h1>Animais Cadastrados</h1>
+
+<a class="action-btn action-add" href="/animais/cadastrar">Novo Animal</a>
+
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Raça</th>
+            <th>Idade</th>
+            <th>Tutor</th> <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each pets}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{nome}}</td>
+            <td>{{especie}}</td>
+            <td>{{raca}}</td>
+            <td>{{idade}}</td>
+            <td>{{Tutor.nome}}</td>
+            <td>
+                <a class="action-btn action-edit" href="/animais/editar/{{id}}">Editar</a>
+                <a class="action-btn action-delete" href="/animais/excluir/{{id}}">Excluir</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+{{#unless pets}}
+<p class="no-data">Nenhum animal cadastrado ainda.</p>
+{{/unless}}
+
+<a class="back-link" href="/">Voltar</a>
